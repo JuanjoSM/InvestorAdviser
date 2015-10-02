@@ -10,7 +10,7 @@ namespace InvestorAdviser.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View();//
         }
 
         public ActionResult About()
