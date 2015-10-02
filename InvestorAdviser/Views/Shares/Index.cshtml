@@ -1,0 +1,59 @@
+﻿@model IEnumerable<InvestorAdviser.Models.Share>
+
+@{
+    ViewBag.Title = "Shares";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    @Html.ActionLink("All shares", "Index")
+    @Html.ActionLink("Purchased shares", "IndexFilterPurchased")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MarketPrice)
+        </th>
+        <th>
+            Total
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MarketPrice)
+        </td>
+        <td>
+            @{
+                int valor = 3;
+                Html.Display("jaja");
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }) |
+            @Html.ActionLink("Purchases", "IndexForAShare", "Purchases", new { id = item.ID },null)
+        </td>
+    </tr>
+}
+
+</table>

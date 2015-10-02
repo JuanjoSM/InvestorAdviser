@@ -1,0 +1,42 @@
+﻿@model InvestorAdviser.Models.Purchase
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Purchase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Share.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Share.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfShares)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfShares)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchasePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchasePrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
