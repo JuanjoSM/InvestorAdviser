@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<InvestorAdviser.Models.Purchase>
 
 @{
-    ViewBag.Title = "Purchases";
+    ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Share.Code)
+            @Html.DisplayNameFor(model => model.Share.CompanyName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NumberOfShares)
@@ -20,13 +20,19 @@
         <th>
             @Html.DisplayNameFor(model => model.PurchasePrice)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OperationCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.operationType)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Share.Code)
+            @Html.DisplayFor(modelItem => item.Share.CompanyName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NumberOfShares)
@@ -35,10 +41,15 @@
             @Html.DisplayFor(modelItem => item.PurchasePrice)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.OperationCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.operationType)
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-
         </td>
     </tr>
 }

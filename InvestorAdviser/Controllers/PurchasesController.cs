@@ -53,7 +53,7 @@ namespace InvestorAdviser.Controllers
         // GET: Purchases/Create
         public ActionResult Create()
         {
-            ViewBag.ShareID = new SelectList(db.Shares, "ID", "Code");
+            ViewBag.ShareID = new SelectList(db.Shares, "ID", "CompanyName");
             return View();
         }
 
@@ -62,7 +62,7 @@ namespace InvestorAdviser.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NumberOfShares,PurchasePrice,ShareID")] Purchase purchase)
+        public ActionResult Create([Bind(Include = "ID,NumberOfShares,PurchasePrice,OperationCost,operationType,ShareID")] Purchase purchase)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace InvestorAdviser.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ShareID = new SelectList(db.Shares, "ID", "Code", purchase.ShareID);
+            ViewBag.ShareID = new SelectList(db.Shares, "ID", "CompanyName", purchase.ShareID);
             return View(purchase);
         }
 
@@ -87,7 +87,7 @@ namespace InvestorAdviser.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ShareID = new SelectList(db.Shares, "ID", "Code", purchase.ShareID);
+            ViewBag.ShareID = new SelectList(db.Shares, "ID", "CompanyName", purchase.ShareID);
             return View(purchase);
         }
 
@@ -96,7 +96,7 @@ namespace InvestorAdviser.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NumberOfShares,PurchasePrice,ShareID")] Purchase purchase)
+        public ActionResult Edit([Bind(Include = "ID,NumberOfShares,PurchasePrice,OperationCost,operationType,ShareID")] Purchase purchase)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +104,7 @@ namespace InvestorAdviser.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ShareID = new SelectList(db.Shares, "ID", "Code", purchase.ShareID);
+            ViewBag.ShareID = new SelectList(db.Shares, "ID", "CompanyName", purchase.ShareID);
             return View(purchase);
         }
 
@@ -132,6 +132,13 @@ namespace InvestorAdviser.Controllers
             db.Purchases.Remove(purchase);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // GET: Purchases/Create
+        public ActionResult CreatePurchase()
+        {
+            ViewBag.ShareID = new SelectList(db.Shares, "ID", "CompanyName");
+            return View(viewName: "Create");
         }
 
         protected override void Dispose(bool disposing)

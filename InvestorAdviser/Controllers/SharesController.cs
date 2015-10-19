@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InvestorAdviser.Models;
+using InvestorAdviser.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,7 +8,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using InvestorAdviser.Models;
 
 namespace InvestorAdviser.Controllers
 {
@@ -135,6 +136,11 @@ namespace InvestorAdviser.Controllers
             return View(share);
         }
 
+        public ActionResult Saludar()
+        {
+            return View();
+        }
+
         // POST: Shares/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -144,6 +150,11 @@ namespace InvestorAdviser.Controllers
             db.Shares.Remove(share);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CreatePurchaseOperation()
+        {
+            return RedirectToAction(actionName: "CreatePurchase", controllerName: "Purchases");
         }
 
         protected override void Dispose(bool disposing)

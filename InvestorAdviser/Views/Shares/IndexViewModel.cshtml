@@ -1,4 +1,4 @@
-﻿@model IEnumerable<InvestorAdviser.Models.ShareViewModel>
+﻿@model IEnumerable<InvestorAdviser.ViewModels.ShareViewModel>
 
 @{
     ViewBag.Title = "Shares";
@@ -48,7 +48,8 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID }) |
-            @Html.ActionLink("Purchases", "IndexForAShare", "Purchases", new { id = item.ID },null)
+            @Html.ActionLink("Purchases", "IndexForAShare", "Purchases", new { id = item.ID },null) |
+            @Html.ActionLink("Buy", "CreatePurchaseOperation")
         </td>
     </tr>
 }

@@ -12,11 +12,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Share.Code)
+            @Html.DisplayNameFor(model => model.Share.CompanyName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Share.Code)
+            @Html.DisplayFor(model => model.Share.CompanyName)
         </dd>
 
         <dt>
@@ -33,6 +33,22 @@
 
         <dd>
             @Html.DisplayFor(model => model.PurchasePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OperationCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OperationCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.operationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.operationType)
         </dd>
 
     </dl>

@@ -1,13 +1,14 @@
-﻿using System;
+﻿using InvestorAdviser.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace InvestorAdviser.Models
+namespace InvestorAdviser.ViewModels
 {
     public static class ShareModelsMapper
     {
-        public static ShareViewModel convertTo(Share model)
+        public static ShareViewModel convertTo(Models.Share model)
         {
             ShareViewModel shareViewModel = new ShareViewModel()
             {

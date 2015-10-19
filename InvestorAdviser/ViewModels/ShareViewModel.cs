@@ -1,9 +1,10 @@
-﻿using System;
+﻿using InvestorAdviser.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace InvestorAdviser.Models
+namespace InvestorAdviser.ViewModels
 {
     public class ShareViewModel
     {
